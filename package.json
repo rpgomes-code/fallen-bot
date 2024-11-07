@@ -1,0 +1,27 @@
+{
+  "name": "fallen-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot built with Discord.js and TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "watch": "tsc -w",
+    "deploy": "ts-node src/deploy-commands.ts",
+    "verify-env": "ts-node src/verify-env.ts"
+  },
+  "dependencies": {
+    "@discord-player/extractor": "^4.5.1",
+    "discord-player": "^6.7.1",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "play-dl": "^1.9.7",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
