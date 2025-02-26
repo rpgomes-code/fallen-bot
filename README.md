@@ -17,6 +17,16 @@ Fallen Bot is a feature-rich Discord bot built with Discord.js and TypeScript. I
       - [`/mod remove_timeout`](#mod-remove_timeout)
       - [`/mod warn`](#mod-warn)
       - [`/mod warnings`](#mod-warnings)
+    - [Welcome System](#welcome-system)
+      - [`/welcome enable`](#welcome-enable)
+      - [`/welcome disable`](#welcome-disable)
+      - [`/welcome message`](#welcome-message)
+      - [`/welcome appearance`](#welcome-appearance)
+      - [`/welcome rules`](#welcome-rules)
+      - [`/welcome mention`](#welcome-mention)
+      - [`/welcome preview`](#welcome-preview)
+      - [`/welcome status`](#welcome-status)
+      - [`/testwelcome`](#testwelcome)
     - [Music Commands](#music-commands)
       - [`/music play`](#music-play)
       - [`/music queue`](#music-queue)
@@ -56,6 +66,7 @@ Fallen Bot offers a comprehensive set of features designed to enhance Discord se
 - **Interactive Commands**: Fun commands that generate rich embed responses and interactive elements.
 - **Role Management**: Sophisticated role assignment system with permission validation.
 - **Server Information**: Commands to display user, server, and asset information.
+- **Welcome System**: Customizable welcome messages with rich embeds when new members join the server.
 
 ## Technical Architecture
 
@@ -165,6 +176,110 @@ Shows the warning history for a specified user.
   - Lists all warnings with IDs, timestamps, reasons, and moderator information
   - Chronological ordering (newest first)
   - User-friendly embed display
+
+### Welcome System
+
+The welcome system provides customizable welcome messages for new members joining your server.
+
+#### `/welcome enable`
+
+Enables the welcome system and sets the welcome channel.
+
+- **Options**:
+  - `channel`: The text channel to send welcome messages to (required)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Activates welcome messages for new members
+  - Sets up default welcome message if not previously configured
+  - Validates that the selected channel is a text channel
+
+#### `/welcome disable`
+
+Disables the welcome system.
+
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Turns off welcome messages while preserving your settings
+
+#### `/welcome message`
+
+Sets the welcome message text.
+
+- **Options**:
+  - `text`: Welcome message text (required)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Supports variables: `{user}`, `{username}`, `{tag}`, `{server}`, `{memberCount}`
+  - Customizable message content
+
+#### `/welcome appearance`
+
+Customizes the welcome embed appearance.
+
+- **Options**:
+  - `title`: Embed title (optional)
+  - `color`: Embed color as hex code (optional)
+  - `footer`: Footer text (optional)
+  - `image`: URL of an image to include in the embed (optional)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Color validation for proper hex format
+  - Custom image support
+  - Personalized title and footer text
+
+#### `/welcome rules`
+
+Configures rules information in welcome messages.
+
+- **Options**:
+  - `show`: Whether to show rules info in welcome messages (required)
+  - `channel`: Rules channel to reference (required if show is true)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Adds a convenient link to your rules channel
+  - Can be toggled on/off as needed
+
+#### `/welcome mention`
+
+Configures whether to mention new users in welcome messages.
+
+- **Options**:
+  - `enabled`: Whether to mention new users (required)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Allows controlling whether users get pinged with welcome message
+
+#### `/welcome preview`
+
+Previews the welcome message.
+
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Shows exactly how the welcome message will appear
+  - Uses your current settings
+  - Marks the preview so it's not confused with a real welcome
+
+#### `/welcome status`
+
+Checks welcome system status and configuration.
+
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Comprehensive overview of all welcome settings
+  - Shows enabled/disabled status
+  - Displays all configuration options in one view
+
+#### `/testwelcome`
+
+Tests the welcome system by simulating a member join.
+
+- **Options**:
+  - `target`: User to simulate joining (optional, defaults to command user)
+- **Permissions Required**: `MANAGE_GUILD`
+- **Features**:
+  - Sends a real welcome message to the configured channel
+  - Helps verify welcome message appearance
+  - Can test with different users in your server
 
 ### Music Commands
 
